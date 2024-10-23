@@ -1,14 +1,17 @@
 import numpy as np
-from numpy import sqrt 
-h = 100 
-a = 45
-b = 35
-g = 9.80665
+from constans import g 
 
-V = sqrt((g* h * np.tan(b)**2)/(2 * np.cos(a)**2 * (1- np.tan(b) * np.tan(a) )))
+x0 = 0
+y0 = 0 
+alpha = 30 * (np.pi / 180)
+V = 1
+Vx0 = V * np.cos(alpha)
+Vy0 = V * np.sin(alpha)
 
-print(V)
+t = np.linspace(0 , 20 , 0.01)
+x = x0 + Vx0 * t
+y = y0 + Vy0 * t
 
-T = 200
-
-N = (2 / sqrt(np.pi)) * (h/ (k * T)**(3/2))
+coords = np.zeros((3 , len(t)))
+coords[: , 0 ] = t[:]
+coords[: , 1] = x[:]
