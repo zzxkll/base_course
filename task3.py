@@ -10,8 +10,10 @@ Vy0 = V * np.sin(alpha)
 
 t = np.linspace(0 , 20 , 0.01)
 x = x0 + Vx0 * t
-y = y0 + Vy0 * t
+y = y0 + Vy0 * t - (g*t**2)/2
 
-coords = np.zeros((3 , len(t)))
+coords = np.zeros((3 , len(t)))  #координаты
 coords[: , 0 ] = t[:]
 coords[: , 1] = x[:]
+
+coords = np.column_stack((t , x , y))
